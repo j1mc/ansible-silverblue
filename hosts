@@ -1,2 +1,5 @@
+[this_host]
+localhost ansible_connection=local
+
 [laptops]
 mossyrock
