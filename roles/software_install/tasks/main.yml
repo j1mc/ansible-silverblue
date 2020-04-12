@@ -52,4 +52,5 @@
     - { remote: 'flathub', package: 'org.gnome.Tau' }
     - { remote: 'flathub', package: 'org.gnome.Totem' }
     - { remote: 'flathub', package: 'org.remmina.Remmina' }
+    - { remote: 'flathub', package: 'us.zoom.Zoom' }
 
