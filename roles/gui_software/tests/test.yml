@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - software_install
+    - gui_software

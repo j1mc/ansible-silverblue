@@ -1,5 +1,5 @@
-software_install
-================
+gui_software
+============
 
 Installs requested software on the host.
 
@@ -23,7 +23,7 @@ Example Playbook
 
     - hosts: all
       roles:
-         - { role: software_install }
+         - { role: gui_software }
 
 License
 -------
