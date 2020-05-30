@@ -2,4 +2,5 @@
 localhost ansible_connection=local
 
 [laptops]
+eastwood
 mossyrock
