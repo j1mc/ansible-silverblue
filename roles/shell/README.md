@@ -1,4 +1,4 @@
-ohmyzsh
+shell
 =======
 
 Install (but don't really configure) oh-my-zsh.
@@ -23,12 +23,12 @@ Example Playbook
 
     - hosts: all 
       roles:
-         - { role: ohmyzsh }
+         - { role: shell }
 
 To Run It
 ---------
 
-`ansible-playbook -i hosts -l this_host --ask-become-pass roles/ohmyzsh/playbook.yml`
+`ansible-playbook -i hosts -l this_host --ask-become-pass roles/shell/playbook.yml`
 
 License
 -------
