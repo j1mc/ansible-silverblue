@@ -1,0 +1,34 @@
+---
+- name: Install packages for Zsh and git
+  package:
+    name: "{{ item }}"
+    state: present
+  register: installation
+  become: true
+  become_method: sudo
+  with_items:
+    - git
+    - zsh
+
+- name: Check if .zshrc exists
+  stat:
+    path: ~/.zshrc
+  register: stat_rc_result
+
+- name: Check if .oh-my-zsh exists
+  stat:
+    path: ~/.oh-my-zsh
+  register: stat_oh_my_zsh_result
+
+- name: Clone oh-my-zsh
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh
+    dest: ~/.oh-my-zsh
+  when: not stat_oh_my_zsh_result.stat.exists
+
+- name: Create a basic ~/.zshrc file
+  copy:
+    src: ~/.oh-my-zsh/templates/zshrc.zsh-template
+    dest: ~/.zshrc
+  when: not stat_rc_result.stat.exists
+
