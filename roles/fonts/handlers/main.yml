@@ -1,0 +1,7 @@
+---
+# handlers file for fonts
+
+- name: Update font cache
+  command: fc-cache -f {{ item.homedir }}/.local/share/fonts
+  with_items: "{{ all_users }}"
+

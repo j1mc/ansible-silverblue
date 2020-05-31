@@ -1,0 +1,15 @@
+galaxy_info:
+  author: Tiago M. Vieira
+  description: this role installs the powerline fonts
+  license: GPLv3
+  min_ansible_version: 2.0
+
+  platforms:
+    - name: Debian
+    - name: Ubuntu
+    - name: Fedora
+
+  galaxy_tags:
+    - system
+ 
+  dependencies: []

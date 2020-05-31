@@ -1,0 +1,40 @@
+---
+
+- name: Install fontconfig package
+  package:
+    state: present
+    name: fontconfig
+  become: true
+  become_method: sudo
+
+- name: Download powerline fonts git repository
+  git:
+    repo: 'https://github.com/powerline/fonts.git'
+    dest: /tmp/fonts
+
+- name: Ensure all users have a local fonts directory
+  file:
+    dest: "{{ item.homedir }}/.local/share/fonts"
+    state: directory
+    owner: "{{ item.user }}"
+    group: "{{ item.user }}"
+  with_items: "{{ all_users }}"
+
+- name: copy fonts
+  command: cp -r /tmp/fonts/{{ item[1] }} {{ item[0].homedir }}/.local/share/fonts/
+  with_nested:
+   - "{{ all_users }}"
+   - "{{ all_fonts }}"
+  notify:
+    Update font cache
+
+- name: Set fonts directory ownership
+  file:
+    dest: "{{ item[0].homedir }}/.local/share/fonts/{{ item[1] }}"
+    state: directory
+    owner: "{{ item[0].user }}"
+    group: "{{ item[0].user }}"
+  with_nested:
+   - "{{ all_users }}"
+   - "{{ all_fonts }}"
+

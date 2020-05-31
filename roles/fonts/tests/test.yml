@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  remote_user: root
+
+  pre_tasks:
+    - name: create user 'foo' for testing purpose
+      user:
+        name: foo
+        comment: "Foo Doe"
+
+  roles:
+    - "{{role_name|default('fonts')}}"
