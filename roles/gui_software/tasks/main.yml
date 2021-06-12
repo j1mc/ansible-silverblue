@@ -30,15 +30,7 @@
     method: user
     remote: "{{ item.remote }}"
   loop:
-    - { remote: 'flathub', package: 'ca.desrt.dconf-editor' }
-    - { remote: 'flathub', package: 'com.bitwarden.desktop' }
-    - { remote: 'flathub', package: 'com.borgbase.Vorta' }
-    - { remote: 'flathub', package: 'com.github.calo001.fondo' }
-    - { remote: 'flathub', package: 'com.github.donadigo.appeditor' }
     - { remote: 'flathub', package: 'com.github.tchx84.Flatseal' }
-    - { remote: 'flathub', package: 'com.microsoft.Teams' }
-    - { remote: 'flathub', package: 'com.transmissionbt.Transmission' }    
-    - { remote: 'flathub', package: 'com.visualstudio.code' }
     - { remote: 'flathub', package: 'org.gabmus.whatip' }
     - { remote: 'flathub', package: 'org.glimpse_editor.Glimpse' }
     - { remote: 'flathub', package: 'org.gnome.design.Contrast' }
@@ -46,7 +38,6 @@
     - { remote: 'flathub', package: 'org.gnome.design.Palette' }
     - { remote: 'flathub', package: 'org.gnome.eog' }
     - { remote: 'flathub', package: 'org.gnome.Firmware' }    
-    - { remote: 'flathub', package: 'org.gnome.Gnote' }
     - { remote: 'flathub', package: 'org.gnome.Music' }
     - { remote: 'flathub', package: 'org.gnome.Podcasts' }
     - { remote: 'flathub', package: 'org.gnome.Tau' }
