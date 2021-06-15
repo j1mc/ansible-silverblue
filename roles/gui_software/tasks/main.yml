@@ -10,3 +10,6 @@
 - name: Include steps to install vpn software
   include_tasks: vpn.yml
 
+- name: Include steps to install Visual Studio Code
+  include_tasks: vscode.yml
+

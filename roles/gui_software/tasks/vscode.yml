@@ -1,0 +1,27 @@
+# Steps to install Visual Studio Code
+
+- name: Import the microsoft RPM repo key
+  rpm_key:
+    state: present
+    key: https://packages.microsoft.com/keys/microsoft.asc
+  become: yes
+  become_method: sudo
+
+- name: Add the Visual Studio Code yum repository
+  yum_repository:
+    name: code
+    description: Visual Studio Code
+    file: code
+    baseurl: https://packages.microsoft.com/yumrepos/vscode
+    gpgcheck: yes
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+  become: yes
+  become_method: sudo
+
+- name: Ensure the Visual Studio Code application is installed
+  package:
+    name: code
+    state: present
+  become: yes
+  become_method: sudo
+
