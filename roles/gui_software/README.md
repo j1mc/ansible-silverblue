@@ -6,7 +6,13 @@ Installs requested software on the host.
 Requirements
 ------------
 
-Uses the `package`, `flatpak_remote` and `flatpak`  modules.
+Uses the following modules:
+
+  * `package`,
+  * `flatpak_remote`
+  * `flatpak`
+  * `rpm_key`
+  * `yum_repository`
 
 Role Variables
 --------------

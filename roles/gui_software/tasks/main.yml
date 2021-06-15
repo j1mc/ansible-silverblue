@@ -1,47 +1,9 @@
 ---
 # tasks file for gui_software
 
-# Install base software
+#- name: Include steps to install Flatpak applications
+#  include_tasks: flatpaks.yml
 
-- name: Ensure the Flatpak package is installed
-  become: yes
-  become_method: sudo
-  package:
-    name: flatpak
-    state: present
-
-# Flatpak Remote Setup
-
-- name: Add Flatpak remote for Flathub
-  flatpak_remote:
-    name: "{{ item.name }}"
-    state: present
-    method: user
-    flatpakrepo_url: "{{ item.url }}"
-  loop:
-    - { name: 'flathub', url: 'https://dl.flathub.org/repo/flathub.flatpakrepo' }
-
-# Flatpak Package Installation
-
-- name: Install Flatpak packages
-  flatpak:
-    name: "{{ item.package }}"
-    state: present
-    method: user
-    remote: "{{ item.remote }}"
-  loop:
-    - { remote: 'flathub', package: 'com.github.tchx84.Flatseal' }
-    - { remote: 'flathub', package: 'org.gabmus.whatip' }
-    - { remote: 'flathub', package: 'org.glimpse_editor.Glimpse' }
-    - { remote: 'flathub', package: 'org.gnome.design.Contrast' }
-    - { remote: 'flathub', package: 'org.gnome.design.IconLibrary' }
-    - { remote: 'flathub', package: 'org.gnome.design.Palette' }
-    - { remote: 'flathub', package: 'org.gnome.eog' }
-    - { remote: 'flathub', package: 'org.gnome.Firmware' }    
-    - { remote: 'flathub', package: 'org.gnome.Music' }
-    - { remote: 'flathub', package: 'org.gnome.Podcasts' }
-    - { remote: 'flathub', package: 'org.gnome.Tau' }
-    - { remote: 'flathub', package: 'org.gnome.Totem' }
-    - { remote: 'flathub', package: 'org.remmina.Remmina' }
-    - { remote: 'flathub', package: 'us.zoom.Zoom' }
+- name: Include steps to install pass_manager
+  include_tasks: pass_manager.yml
 
