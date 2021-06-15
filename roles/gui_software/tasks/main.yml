@@ -1,9 +1,12 @@
 ---
 # tasks file for gui_software
 
-#- name: Include steps to install Flatpak applications
-#  include_tasks: flatpaks.yml
+- name: Include steps to install Flatpak applications
+  include_tasks: flatpaks.yml
 
 - name: Include steps to install pass_manager
   include_tasks: pass_manager.yml
+
+- name: Include steps to install vpn software
+  include_tasks: vpn.yml
 
