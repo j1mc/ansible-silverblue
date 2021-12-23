@@ -1,19 +1,19 @@
 ---
 
 - name: Install fontconfig package
-  package:
+  ansible.builtin.package:
     state: present
     name: fontconfig
   become: true
   become_method: sudo
 
 - name: Download powerline fonts git repository
-  git:
+  ansible.builtin.git:
     repo: 'https://github.com/powerline/fonts.git'
     dest: /tmp/fonts
 
 - name: Ensure all users have a local fonts directory
-  file:
+  ansible.builtin.file:
     dest: "{{ item.homedir }}/.local/share/fonts"
     state: directory
     owner: "{{ item.user }}"
@@ -21,7 +21,7 @@
   with_items: "{{ all_users }}"
 
 - name: copy fonts
-  command: cp -r /tmp/fonts/{{ item[1] }} {{ item[0].homedir }}/.local/share/fonts/
+  ansible.builtin.command: cp -r /tmp/fonts/{{ item[1] }} {{ item[0].homedir }}/.local/share/fonts/
   with_nested:
    - "{{ all_users }}"
    - "{{ all_fonts }}"
@@ -29,7 +29,7 @@
     Update font cache
 
 - name: Set fonts directory ownership
-  file:
+  ansible.builtin.file:
     dest: "{{ item[0].homedir }}/.local/share/fonts/{{ item[1] }}"
     state: directory
     owner: "{{ item[0].user }}"
