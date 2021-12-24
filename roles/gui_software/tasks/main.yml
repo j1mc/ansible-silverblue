@@ -2,14 +2,13 @@
 # tasks file for gui_software
 
 - name: Include steps to install Flatpak applications
-  include_tasks: flatpaks.yml
+  ansible.builtin.include_tasks: flatpaks.yml
+  tags: flatpaks
 
 - name: Include steps to install pass_manager
-  include_tasks: pass_manager.yml
+  ansible.builtin.include_tasks: pass_manager.yml
+  tags: pass_manager
 
-- name: Include steps to install vpn software
-  include_tasks: vpn.yml
-
-- name: Include steps to install Visual Studio Code
-  include_tasks: vscode.yml
-
+- name: Include steps to install tailscale software
+  ansible.builtin.include_tasks: tailscale.yml
+  tags: tailscale

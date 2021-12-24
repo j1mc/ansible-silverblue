@@ -39,5 +39,5 @@ BSD
 Author Information
 ------------------
 
-Jim Campbell (jcampbell@gnome.org)
+Jim Campbell (jwcampbell@gmail.com)
 

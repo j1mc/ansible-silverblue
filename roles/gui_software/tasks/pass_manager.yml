@@ -1,14 +1,14 @@
 # Steps to install password manager software
 
 - name: Import the 1password RPM repo key
-  rpm_key:
+  ansible.builtin.rpm_key:
     state: present
     key: https://downloads.1password.com/linux/keys/1password.asc
   become: yes
   become_method: sudo
 
 - name: Add the 1password yum repository
-  yum_repository:
+  ansible.builtin.yum_repository:
     name: 1password
     description: 1Password Stable Channel
     file: 1password
@@ -19,7 +19,7 @@
   become_method: sudo
 
 - name: Ensure the 1password application is installed
-  package:
+  ansible.builtin.package:
     name: 1password
     state: present
   become: yes
