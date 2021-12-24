@@ -1,14 +1,21 @@
-# Steps to install vpn software
+# Steps to install tailscale software
 
 - name: Import the tailscale RPM repo key
-  rpm_key:
+  ansible.builtin.rpm_key:
     state: present
     key: https://pkgs.tailscale.com/stable/fedora/repo.gpg
   become: yes
   become_method: sudo
+  tags: tailscale
 
 - name: Add the tailscale yum repository
-  yum_repository:
+  ansible.builtin.command: dnf config-manager --add-repo https://pkgs.tailscale.com/stable/fedora/$basearch
+  become: yes
+  become_method: sudo
+  tags: tailscale
+
+- name: Add the tailscale yum repository
+  ansible.builtin.yum_repository:
     name: tailscale
     description: Tailscale stable
     file: tailscale
@@ -17,20 +24,22 @@
     gpgkey: https://pkgs.tailscale.com/stable/fedora/repo.gpg
   become: yes
   become_method: sudo
+  tags: tailscale
 
 - name: Ensure the tailscale application is installed
-  package:
+  community.general.rpm_ostree_pkg:
     name: tailscale
     state: present
   become: yes
   become_method: sudo
+  tags: tailscale
 
 - name: Start and enable the tailscaled service
-  systemd:
+  ansible.builtin.systemd:
     name: tailscaled
     enabled: yes
     daemon_reload: yes
     state: started
   become: yes
   become_method: sudo
-
+  tags: tailscale
