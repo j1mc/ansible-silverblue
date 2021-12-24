@@ -1,6 +1,6 @@
 ---
 - name: Install packages for Zsh and git
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: present
   register: installation
@@ -11,23 +11,23 @@
     - zsh
 
 - name: Check if .zshrc exists
-  stat:
+  ansible.builtin.stat:
     path: ~/.zshrc
   register: stat_rc_result
 
 - name: Check if .oh-my-zsh exists
-  stat:
+  ansible.builtin.stat:
     path: ~/.oh-my-zsh
   register: stat_oh_my_zsh_result
 
 - name: Clone oh-my-zsh
-  git:
+  ansible.builtin.git:
     repo: https://github.com/robbyrussell/oh-my-zsh
     dest: ~/.oh-my-zsh
   when: not stat_oh_my_zsh_result.stat.exists
 
 - name: Create a basic ~/.zshrc file
-  copy:
+  ansible.builtin.copy:
     src: ~/.oh-my-zsh/templates/zshrc.zsh-template
     dest: ~/.zshrc
   when: not stat_rc_result.stat.exists
