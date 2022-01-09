@@ -5,7 +5,11 @@ Use `dconf` to apply desired user interface settings. Currently, this role sets 
 options:
 
   - Enables the 'Night Light' feature.
-
+  - Removes old trash and temporary files after 14 days
+  - Blanks the screen after 8 minutes
+  - Locks the screen after 30 minutes
+  - Uses 'AM/PM' rather than a 24-hour clock.
+  - Sets 4 workspaces by default (rather than using dynamic workspaces) 
 
 Requirements
 ------------
