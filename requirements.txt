@@ -1,7 +1,9 @@
 ansible == 5.0.1
 jinja2 == 3.0.3
-PyYAML == 6.0
+PyYAML == 5.4.1 
 cryptography == 36.0.1
+molecule == 3.5.2
+molecule-podman == 1.0.1
 packaging == 21.3
 # NOTE: resolvelib 0.x version bumps should be considered major/breaking
 # NOTE: and we should update the upper cap with care, at least until 1.0
