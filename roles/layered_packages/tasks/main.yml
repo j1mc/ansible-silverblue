@@ -1,0 +1,16 @@
+---
+# tasks file for layered_packages
+
+- name: Install prescribed set of applications as rpm-ostree layered packages
+  community.general.rpm_ostree_pkg:
+    name: "{{ item }}"
+    state: present
+    # apply_live: true
+  become: yes
+  become_method: sudo
+  loop:
+    - fontconfig
+    - gnome-tweaks
+    - net-tools
+    - python3-psutil
+    - vim
