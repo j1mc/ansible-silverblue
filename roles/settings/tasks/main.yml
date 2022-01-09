@@ -1,0 +1,14 @@
+---
+# tasks file for settings
+
+- name: Apply desired settings via dconf
+  community.general.dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    state: present
+  loop: "{{ dconf_settings }}"
+
+- name: Update the dconf database
+  ansible.builtin.command: sudo dconf update
+  become: yes
+  become_method: sudo
