@@ -9,7 +9,7 @@ options:
   - Blanks the screen after 8 minutes
   - Locks the screen after 30 minutes
   - Uses 'AM/PM' rather than a 24-hour clock.
-  - Sets 4 workspaces by default (rather than using dynamic workspaces) 
+  - Include minimize, resize, and maximize buttons in the application window.
 
 Requirements
 ------------

@@ -1,7 +1,6 @@
 ---
 # vars file for settings
 
-
 dconf_settings:
 - { key: '/org/gnome/settings-daemon/plugins/color/night-light-enabled', value: 'true' }
 - { key: '/org/gnome/desktop/privacy/remember-recent-files', value: 'true' }
@@ -12,5 +11,4 @@ dconf_settings:
 - { key: '/org/gnome/desktop/screensaver/lock-delay', value: 'uint32 1800' }
 - { key: '/org/gnome/desktop/interface/clock-format', value: "'12h'" }
 - { key: '/org/gtk/settings/file-chooser/clock-format', value: "'12h'" }
-- { key: '/org/gnome/mutter/dynamic-workspaces', value: 'false' }
-- { key: '/org/gnome/desktop/wm/preferences/num-workspaces', value: '4' }
+- { key: '/org/gnome/desktop/wm/preferences/button-layout', value: "'appmenu:minimize,maximize,close'" }
