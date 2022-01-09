@@ -1,23 +1,46 @@
-desktop_ansible
-===============
+ansible-silverblue
+==================
 
-A set of Ansible roles to configure my personal workstations or laptops.
+You can use this repository to configure a [Fedora Silverblue](https://silverblue.fedoraproject.org/)
+workstation or laptop with Ansible.
+
+Each of the project's roles contain a README file that explains what the role is and how to use
+it. Any needed role variables are stored in each role's `vars/main.yml` file.
 
 Included Roles
 --------------
 
-  - fonts: Installs custom fonts
-  - gui_software: Installs graphical desktop software
-  - shell: Installs preferred terminal shell & sets basic shell configs
+  - layered_packages: Install layered packages into the rpm-ostree image.
+  - flatpaks: Install desired flatpak packages
+  - fonts: Installs custom fonts (this role is under the GPLv3 License)
+  - settings: Sets desired GUI settings via dconf.
+
+Setup
+-----
+
+Clone this repository with:
+
+  - `git clone https://github.com/j1mc/ansible-silverblue.git`
+
+
+Install needed dependencies with:
+
+  - `cd ansible-silverblue && python3 -m venv venv && source venv/bin/activate && pip3 install -r requirements.txt`
+  - `ansible-galaxy collection install -r requirements.yml`
+
+Run the Playbooks
+-----------------
+
+This command will run all of the included playbooks:
+
+`ansible-playbook -i hosts -l this_host -K playbook_base.yml`.
 
 License
 -------
 
-Unless otherwise indicated in the individual role, this project is under the
-Apache 2.0 license. See the LICENSE file for more information.
+Unless otherwise indicated in the individual role, this project is under the BSD License.
 
 Author
 ------
 
-Jim Campbell (jwcampbell@gmail.com)
-
+  * Jim Campbell (jwcampbell@gmail.com)
