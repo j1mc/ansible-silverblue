@@ -1,10 +1,11 @@
 ---
 
-- name: Install fontconfig package
-  ansible.builtin.package:
-    state: present
+- name: Install fontconfig layered package
+  community.general.rpm_ostree_pkg:
     name: fontconfig
-  become: true
+    state: present
+    # apply_live: true
+  become: yes
   become_method: sudo
 
 - name: Download powerline fonts git repository
@@ -37,4 +38,3 @@
   with_nested:
    - "{{ all_users }}"
    - "{{ all_fonts }}"
-
