@@ -1,12 +1,31 @@
 ---
 # tasks file for settings
 
+- name: Check for the presence of the 'python3-psutil' package
+  ansible.builtin.stat:
+    path:  /usr/share/doc/python3-psutil
+  register: psutil
+
+- debug:
+    msg: "NOTE! The python3-psutil package will now be installed, but this role won't work until the package is fully installed after a reboot."
+  when: psutil.stat.exists != true
+
+- name: Install python3-psutil layered package
+  community.general.rpm_ostree_pkg:
+    name: python3-psutil
+    state: present
+    # apply_live: true
+  become: yes
+  become_method: sudo
+  when: psutil.stat.exists != true
+
 - name: Apply desired settings via dconf
   community.general.dconf:
     key: "{{ item.key }}"
     value: "{{ item.value }}"
     state: present
   loop: "{{ dconf_settings }}"
+  ignore_errors: true
 
 - name: Update the dconf database
   ansible.builtin.command: sudo dconf update
