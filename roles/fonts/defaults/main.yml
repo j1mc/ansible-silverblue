@@ -1,3 +1,13 @@
 ---
 
 # Defaults file for the fonts role
+
+# see the list of fonts at https://github.com/powerline/fonts
+# the names must match the directory names for each font
+all_fonts:
+  - DejaVuSansMono
+  - FiraMono
+  - Hack
+  - RobotoMono
+  - SourceCodePro
+  - UbuntuMono
