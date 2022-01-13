@@ -1,4 +1,4 @@
-ansible == 5.0.1
+ansible == 5.2.0
 jinja2 == 3.0.3
 PyYAML == 5.4.1 
 cryptography == 36.0.1
