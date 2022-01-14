@@ -5,7 +5,13 @@ You can use this repository to configure a [Fedora Silverblue](https://silverblu
 workstation or laptop with Ansible.
 
 Each of the project's roles contain a README file that explains what the role is and how to use
-it. Any needed role variables are stored in each role's `vars/main.yml` file.
+it.
+
+Variables
+---------
+
+I've tried to consolidate variables into the `group_vars/all` file. Please look at that file!
+Edits to that file will affect what happens in each of the related roles.
 
 Included Roles
 --------------
@@ -22,11 +28,15 @@ Clone this repository with:
 
   - `git clone https://github.com/j1mc/ansible-silverblue.git`
 
-
 Install needed dependencies with:
 
-  - `cd ansible-silverblue && python3 -m venv venv && source venv/bin/activate && pip3 install -r requirements.txt`
+  - `cd ansible-silverblue && python3 -m venv venv`
+  - `source venv/bin/activate`
+  - `&& pip3 install -r requirements.txt`
   - `ansible-galaxy collection install -r requirements.yml`
+
+Makes edits to the `group_vars/all` file to customize this project to make it do what you want it
+to do.
 
 Run the Playbooks
 -----------------
