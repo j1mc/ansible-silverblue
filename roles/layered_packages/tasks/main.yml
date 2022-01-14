@@ -1,16 +1,29 @@
 ---
 # tasks file for layered_packages
 
-- name: Install prescribed set of applications as rpm-ostree layered packages
+- name: Check to see if an rpm-ostree transaction is currently running
+  ansible.builtin.command: pgrep rpm-ostree
+  register: ostree_status
+  failed_when: ostree_status.rc == "999"  # Don't fail, regardless of return code
+
+- name: Cancel a current rpm-ostree update when an update is currently running.
+  ansible.builtin.command: rpm-ostree cancel
+  when: ostree_status.rc != 1
+
+- name: Install desired applications as layered packages
   community.general.rpm_ostree_pkg:
     name: "{{ item }}"
     state: present
-    # apply_live: true
+    # apply_live: true  # This feature is not yet available
   become: yes
   become_method: sudo
-  loop:
-    - fontconfig
-    - gnome-tweaks
-    - net-tools
-    - python3-psutil
-    - vim
+  loop: "{{ layered_package_install }}"
+
+- name: Remove applications from the base OS
+  ansible.builtin.command: rpm-ostree override remove {{ item }}
+  become: yes
+  become_method: sudo
+  loop: "{{ base_package_remove }}"
+
+- debug:
+    msg: "A reboot is required to complete installation / removal of these packages"
