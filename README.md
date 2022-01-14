@@ -2,24 +2,25 @@ ansible-silverblue
 ==================
 
 You can use this repository to configure a [Fedora Silverblue](https://silverblue.fedoraproject.org/)
-workstation or laptop with Ansible.
+workstation or laptop with Ansible. It will make it easier to apply the same settings to multiple
+hosts, saving you from having to manually configure your computer over and over again.
+
+Included Roles
+--------------
 
 Each of the project's roles contain a README file that explains what the role is and how to use
-it.
+it, but here is a summary of each role:
+
+  - layered_packages: Install or remove packages into / from the rpm-ostree image.
+  - flatpaks: Install desired [flatpak](https://flatpak.org/) packages
+  - fonts: Installs custom fonts (this role is under the GPLv3 License)
+  - settings: Set desired GUI settings via dconf.
 
 Variables
 ---------
 
 I've tried to consolidate variables into the `group_vars/all` file. Please look at that file!
 Edits to that file will affect what happens in each of the related roles.
-
-Included Roles
---------------
-
-  - layered_packages: Install layered packages into the rpm-ostree image.
-  - flatpaks: Install desired flatpak packages
-  - fonts: Installs custom fonts (this role is under the GPLv3 License)
-  - settings: Sets desired GUI settings via dconf.
 
 Setup
 -----
