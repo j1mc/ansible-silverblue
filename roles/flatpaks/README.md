@@ -16,7 +16,11 @@ Uses the following modules:
 Role Variables
 --------------
 
-None
+These varables are set in the project's `group_vars/all` file. Make your edits there!
+
+  * flatpak_remote_install: Configure a flatpak remote. Requires a name and a URL.
+  * flatpak_package_install: Flatpak applications to install. Requires a `remote` (e.g.,
+    'flathub'), and an application name (e.g., 'org.gnome.Podcasts').
 
 Dependencies
 ------------

@@ -7,8 +7,7 @@
     state: present
     method: user
     flatpakrepo_url: "{{ item.url }}"
-  loop:
-    - { name: 'flathub', url: 'https://dl.flathub.org/repo/flathub.flatpakrepo' }
+  loop: "{{ flatpak_remote_install }}"
 
 - name: Install Flatpak packages
   community.general.flatpak:
@@ -16,11 +15,4 @@
     state: present
     method: user
     remote: "{{ item.remote }}"
-  loop:
-    - { remote: 'flathub', package: 'org.glimpse_editor.Glimpse' }
-    - { remote: 'flathub', package: 'org.gnome.eog' }
-    - { remote: 'flathub', package: 'org.gnome.Firmware' }    
-    - { remote: 'flathub', package: 'org.gnome.Podcasts' }
-    - { remote: 'flathub', package: 'org.gnome.Totem' }
-    - { remote: 'flathub', package: 'org.remmina.Remmina' }
-    - { remote: 'flathub', package: 'us.zoom.Zoom' }
+  loop: "{{ flatpak_package_install }}"
