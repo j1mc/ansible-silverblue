@@ -1,0 +1,52 @@
+# The 'layered_packages' role #
+###############################
+layered_package_install:
+  - alacritty
+  - gnome-tweaks
+  - net-tools
+  - python3-psutil
+  - vim
+
+base_package_remove:
+  - firefox
+
+
+# The 'flatpak' role #
+######################
+flatpak_remote_install:
+  - { name: 'flathub', url: 'https://dl.flathub.org/repo/flathub.flatpakrepo' }
+
+flatpak_package_install:
+  - { remote: 'flathub', package: 'org.glimpse_editor.Glimpse' }
+  - { remote: 'flathub', package: 'org.gnome.eog' }
+  - { remote: 'flathub', package: 'org.gnome.Firmware' }    
+  - { remote: 'flathub', package: 'org.gnome.Podcasts' }
+  - { remote: 'flathub', package: 'org.gnome.Totem' }
+  - { remote: 'flathub', package: 'org.mozilla.firefox' }
+  - { remote: 'flathub', package: 'org.remmina.Remmina' }
+
+
+# The 'fonts' role #
+####################
+install_fonts:
+  - DejaVuSansMono
+  - FiraMono
+  - Hack
+  - RobotoMono
+  - SourceCodePro
+  - UbuntuMono
+
+
+# The 'settings' role #
+#######################
+dconf_settings:
+- { key: '/org/gnome/settings-daemon/plugins/color/night-light-enabled', value: 'true' }
+- { key: '/org/gnome/desktop/privacy/remember-recent-files', value: 'true' }
+- { key: '/org/gnome/desktop/privacy/remove-old-trash-files', value: 'true' }
+- { key: '/org/gnome/desktop/privacy/remove-old-temp-files', value: 'true' }
+- { key: '/org/gnome/desktop/privacy/old-files-age', value: 'uint32 14' }
+- { key: '/org/gnome/desktop/session/idle-delay', value: 'uint32 480' }
+- { key: '/org/gnome/desktop/screensaver/lock-delay', value: 'uint32 1800' }
+- { key: '/org/gnome/desktop/interface/clock-format', value: "'12h'" }
+- { key: '/org/gtk/settings/file-chooser/clock-format', value: "'12h'" }
+- { key: '/org/gnome/desktop/wm/preferences/button-layout', value: "'appmenu:minimize,maximize,close'" }
