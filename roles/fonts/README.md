@@ -11,27 +11,17 @@ This role requires the `fontconfig` package to be installed. That package will b
 
 Modules used:
 
-  * community.general.rpm_ostree_pkg
-  * ansible.builtin.git
-  * ansible.builtin.file
-  * ansible.builtin.command
+  * [ansible.builtin.command](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/command_module.html)
+  * [ansible.builtin.file](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html)
+  * [ansible.builtin.git](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/git_module.html)
+  * [community.general.rpm_ostree_pkg](https://docs.ansible.com/ansible/latest/collections/community/general/rpm_ostree_pkg_module.html)
 
 Role Variables
 --------------
 
-These variables are tracked in this role's `vars/main.yml` file.
+These varables are set in the project's `group_vars/all` file. Make your edits there!
 
-```yaml
-all_users:              # this role can configure for one or more users
-  - user: foo           # username
-    homedir: /home/foo  # the home dir for the username
-
-all_fonts:              # the fonts you want to install
-  - RobotoMono          # the name of these fonts must match the name of the
-  - SourceCodePro       # font directory
-  - DejaVuSansMono
-  - UbuntuMono
-```
+  * all_fonts: Fonts to be installed
 
 Dependencies
 ------------
