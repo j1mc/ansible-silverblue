@@ -9,6 +9,9 @@
     flatpakrepo_url: "{{ item.url }}"
   loop: "{{ flatpak_remote_install }}"
 
+- name: Update metadata to show newly-available software
+  ansible.builtin.command: flatpak update --appstream
+
 - name: Install Flatpak packages
   community.general.flatpak:
     name: "{{ item.package }}"
