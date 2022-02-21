@@ -1,7 +1,9 @@
 flatpaks
 ========
 
-Installs requested flatpak software on the host.
+Installs requested flatpak software on the host. By default, it will only install and configure
+the [flathub](https://flathub.org/home) repository. Other flatpak remotes are available, though!
+See the `group_vars/all` file and uncomment the repositories that you want to use.
 
 Requirements
 ------------
@@ -10,8 +12,8 @@ This role assumes that the `flatpak` application is already installed.
 
 Uses the following modules:
 
-  * `ansible.community.flatpak_remote`
-  * `ansible.community.flatpak`
+  * [ansible.community.flatpak_remote](https://docs.ansible.com/ansible/latest/collections/community/general/flatpak_remote_module.html)
+  * [ansible.community.flatpak](https://docs.ansible.com/ansible/latest/collections/community/general/flatpak_module.html)
 
 Role Variables
 --------------
