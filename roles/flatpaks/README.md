@@ -12,6 +12,7 @@ This role assumes that the `flatpak` application is already installed.
 
 Uses the following modules:
 
+  * [ansible.builtin.command](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/command_module.html)
   * [ansible.community.flatpak_remote](https://docs.ansible.com/ansible/latest/collections/community/general/flatpak_remote_module.html)
   * [ansible.community.flatpak](https://docs.ansible.com/ansible/latest/collections/community/general/flatpak_module.html)
 
