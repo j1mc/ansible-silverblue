@@ -48,7 +48,7 @@ Run the Playbooks
 
 This command will run all of the included playbooks:
 
-`ansible-playbook -i hosts -l this_host -K playbook_base.yml`
+`ansible-playbook -i hosts -l this_host -K -v playbook_base.yml`
 
 If you want to run any of the roles individually, please review that role's `README` file for the
 needed command.
