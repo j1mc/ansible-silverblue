@@ -15,8 +15,9 @@ brief summary of each role:
   - layered_packages: Install or remove packages into / from the base rpm-ostree image.
   - flatpaks: Install desired [flatpak](https://flatpak.org/) applications.
   - fonts: Install custom fonts (this role is under the GPLv3 License).
-  - settings: Set various desktop / system settings. The role makes these changes via
+  - gnome_settings: Set various GNOME desktop settings. The role makes these changes via
     [dconf](https://wiki.gnome.org/Projects/dconf).
+  - os_updates: Configure the auto-update policy for the host.
 
 Variables
 ---------

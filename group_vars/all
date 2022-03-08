@@ -15,10 +15,10 @@ base_package_remove:
 ######################
 flatpak_remote_install:
   - { name: 'flathub', url: 'https://dl.flathub.org/repo/flathub.flatpakrepo' }                 # Flathub
-#  - { name: 'fedora', url: 'oci+https://registry.fedoraproject.org' }                          # Fedora
-#  - { name: 'flathub-beta', url: 'https://flathub.org/beta-repo/flathub-beta.flatpakrepo' }    # Flathub Beta
+  - { name: 'fedora', url: 'oci+https://registry.fedoraproject.org' }                          # Fedora
+  - { name: 'flathub-beta', url: 'https://flathub.org/beta-repo/flathub-beta.flatpakrepo' }    # Flathub Beta
+  - { name: 'gnome-nightly', url: 'https://nightly.gnome.org/gnome-nightly.flatpakrepo' }      # GNOME nightly    
 #  - { name: 'kdeapps', url: 'https://distribute.kde.org/kdeapps.flatpakrepo' }                 # KDE applications
-#  - { name: 'gnome-nightly', url: 'https://nightly.gnome.org/gnome-nightly.flatpakrepo' }      # GNOME nightly    
 
 flatpak_package_install:
   - { remote: 'flathub', package: 'org.glimpse_editor.Glimpse' }
@@ -54,3 +54,11 @@ dconf_settings:
 - { key: '/org/gnome/desktop/interface/clock-format', value: "'12h'" }
 - { key: '/org/gtk/settings/file-chooser/clock-format', value: "'12h'" }
 - { key: '/org/gnome/desktop/wm/preferences/button-layout', value: "'appmenu:minimize,maximize,close'" }
+
+
+# The 'os_updates' role #
+#########################
+
+update_policy: stage
+idle_timeout: '60'
+
