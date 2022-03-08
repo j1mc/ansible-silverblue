@@ -1,5 +1,5 @@
 ---
-# tasks file for settings
+# tasks file for gnome_settings
 
 - name: Check for the presence of the 'python3-psutil' package
   ansible.builtin.stat:
@@ -19,12 +19,12 @@
   become_method: sudo
   when: psutil.stat.exists != true
 
-- name: Apply desired settings via dconf. This step will be skipped if 'python3-psutil' is not fully present.
+- name: Apply desired gnome_settings via dconf. This step will be skipped if 'python3-psutil' is not fully present.
   community.general.dconf:
     key: "{{ item.key }}"
     value: "{{ item.value }}"
     state: present
-  loop: "{{ dconf_settings }}"
+  loop: "{{ dconf_gnome_settings }}"
   when: psutil.stat.exists == true
 
 - name: Update the dconf database. This step will be skipped if 'python3-psutil' is not fully present.

@@ -1,0 +1,4 @@
+---
+- hosts: all
+  roles:
+    - { role: gnome_settings }

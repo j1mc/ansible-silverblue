@@ -1,7 +1,7 @@
-Settings
-========
+gnome_settings
+==============
 
-Use `dconf` to apply desired user interface settings. Currently, this role sets the following
+Use `dconf` to apply desired user interface gnome_settings. Currently, this role sets the following
 options:
 
   - Enables the 'Night Light' feature.
@@ -45,14 +45,14 @@ None
 Example Adhoc Run
 -----------------
 
-`ansible-playbook -i hosts -l this_host -K roles/settings/playbook.yml`
+`ansible-playbook -i hosts -l this_host -K roles/gnome_settings/playbook.yml`
 
 Example Playbook
 ----------------
 
     - hosts: all
       roles:
-         - { role: settings }
+         - { role: gnome_settings }
 
 License
 -------
