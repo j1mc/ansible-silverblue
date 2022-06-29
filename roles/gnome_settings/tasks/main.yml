@@ -24,7 +24,7 @@
     key: "{{ item.key }}"
     value: "{{ item.value }}"
     state: present
-  loop: "{{ dconf_gnome_settings }}"
+  loop: "{{ dconf_settings }}"
   when: psutil.stat.exists == true
 
 - name: Update the dconf database. This step will be skipped if 'python3-psutil' is not fully present.
