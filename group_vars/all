@@ -1,23 +1,23 @@
 # The 'layered_packages' role #
 ###############################
 layered_package_install:
-  - alacritty
+#  - alacritty
   - gnome-tweaks
   - net-tools
   - python3-psutil
   - vim
 
 base_package_remove:
-  - firefox
+#  - firefox
 
 
 # The 'flatpak' role #
 ######################
 flatpak_remote_install:
   - { name: 'flathub', url: 'https://dl.flathub.org/repo/flathub.flatpakrepo' }                 # Flathub
-  - { name: 'fedora', url: 'oci+https://registry.fedoraproject.org' }                          # Fedora
-  - { name: 'flathub-beta', url: 'https://flathub.org/beta-repo/flathub-beta.flatpakrepo' }    # Flathub Beta
-  - { name: 'gnome-nightly', url: 'https://nightly.gnome.org/gnome-nightly.flatpakrepo' }      # GNOME nightly    
+#  - { name: 'fedora', url: 'oci+https://registry.fedoraproject.org' }                          # Fedora
+#  - { name: 'flathub-beta', url: 'https://flathub.org/beta-repo/flathub-beta.flatpakrepo' }    # Flathub Beta
+#  - { name: 'gnome-nightly', url: 'https://nightly.gnome.org/gnome-nightly.flatpakrepo' }      # GNOME nightly    
 #  - { name: 'kdeapps', url: 'https://distribute.kde.org/kdeapps.flatpakrepo' }                 # KDE applications
 
 flatpak_package_install:
@@ -61,4 +61,3 @@ dconf_settings:
 
 update_policy: stage
 idle_timeout: '60'
-
