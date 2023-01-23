@@ -1,24 +1,24 @@
 # The 'layered_packages' role #
 ###############################
 layered_package_install:
-#  - alacritty
   - gnome-tweaks
   - net-tools
   - python3-psutil
   - vim
+  - yamllint
 
 base_package_remove:
-#  - firefox
-
+  - firefox
+  - firefox-lang-packs
 
 # The 'flatpak' role #
 ######################
 flatpak_remote_install:
   - { name: 'flathub', url: 'https://dl.flathub.org/repo/flathub.flatpakrepo' }                 # Flathub
-#  - { name: 'fedora', url: 'oci+https://registry.fedoraproject.org' }                          # Fedora
-#  - { name: 'flathub-beta', url: 'https://flathub.org/beta-repo/flathub-beta.flatpakrepo' }    # Flathub Beta
-#  - { name: 'gnome-nightly', url: 'https://nightly.gnome.org/gnome-nightly.flatpakrepo' }      # GNOME nightly    
-#  - { name: 'kdeapps', url: 'https://distribute.kde.org/kdeapps.flatpakrepo' }                 # KDE applications
+# - { name: 'fedora', url: 'oci+https://registry.fedoraproject.org' }                           # Fedora
+# - { name: 'flathub-beta', url: 'https://flathub.org/beta-repo/flathub-beta.flatpakrepo' }     # Flathub Beta
+# - { name: 'gnome-nightly', url: 'https://nightly.gnome.org/gnome-nightly.flatpakrepo' }       # GNOME nightly    
+# - { name: 'kdeapps', url: 'https://distribute.kde.org/kdeapps.flatpakrepo' }                  # KDE applications
 
 flatpak_package_install:
   - { remote: 'flathub', package: 'org.glimpse_editor.Glimpse' }
@@ -29,7 +29,6 @@ flatpak_package_install:
   - { remote: 'flathub', package: 'org.mozilla.firefox' }
   - { remote: 'flathub', package: 'org.remmina.Remmina' }
 
-
 # The 'fonts' role #
 ####################
 install_fonts:
@@ -39,7 +38,6 @@ install_fonts:
   - RobotoMono
   - SourceCodePro
   - UbuntuMono
-
 
 # The 'settings' role #
 #######################
@@ -55,9 +53,8 @@ dconf_settings:
 - { key: '/org/gtk/settings/file-chooser/clock-format', value: "'12h'" }
 - { key: '/org/gnome/desktop/wm/preferences/button-layout', value: "'appmenu:minimize,maximize,close'" }
 
-
 # The 'os_updates' role #
 #########################
 
 update_policy: stage
-idle_timeout: '60'
+idle_timeout: '600'
