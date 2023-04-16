@@ -27,3 +27,14 @@
 
 - debug:
     msg: "A reboot is required to complete installation / removal of these packages"
+
+- name: Query whether booted RPM-OSTree deployment is first deployment
+  shell: rpm-ostree status --json | jq -r .deployments[0].booted
+  register: booted
+
+- name: Reboot if new deployement is ready.
+  reboot:
+    reboot_timeout: 300
+  become: yes
+  when:
+    - booted.stdout == "false"
